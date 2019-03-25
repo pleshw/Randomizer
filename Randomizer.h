@@ -62,9 +62,9 @@
  		{
 			Simulation tmp;
 			for( double i = _min; i < _max; i++ )
-		    	tmp[i] = 0;
+				tmp[i] = 0;
 			for( double i = 0; i < n; i++ )
-		    	tmp[GetRandomInt()]++;
+				tmp[GetRandomInt()]++;
 		    return tmp;
  		}
 	};
