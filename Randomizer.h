@@ -48,7 +48,7 @@
 
  		// Propriedades.
  		double min( void ) { return _min; }
- 		double max( void ) { return _max; }
+ 		double max( void ) { return _max-1; }
  		unsigned int seed( void ) { return _seed; }
 
  		// Retorna um número real aleatório dentro do range.
@@ -69,16 +69,16 @@
  		}
 
   		// Retorna um array com o resultado do teste de n dados jogados aleatoriamente mas exclui um valor.
- 		virtual Simulation TestWithException ( size_t n, double except )
+ 		virtual Simulation TestWithException ( unsigned long n, long except )
  		{
 			Simulation tmp;
 			
-			// init the scope
-			for( double i = _min; i < _max; i++ )
+			// inicia o escopo de busca
+			for( long i = _min; i < _max; i++ )
 				tmp[i] = 0;
 
 			// for each test case
-			for( double i = 0; i < n; i++ )
+			for( unsigned long i = 0; i < n; i++ )
 			{
 				// se não for a exceção adicione uma ocorrencia, se for troque de index até não ser.
 				long rand_index = GetRandomInt();
@@ -93,6 +93,7 @@
 			}// for
 		    return tmp;
  		}
+
 	};
 
 #endif
