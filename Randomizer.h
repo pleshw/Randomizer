@@ -46,6 +46,10 @@
  			_generator { _seed }
 		{ /* Alocação e declarações extras se necessário. */ }
 
+ 		// Propriedades.
+ 		double min( void ) { return _min; }
+ 		double max( void ) { return _max; }
+ 		unsigned int seed( void ) { return _seed; }
 
  		// Retorna um número real aleatório dentro do range.
  		double GetRandom ( void ) { return _range(_generator); }
