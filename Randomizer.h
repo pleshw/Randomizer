@@ -59,7 +59,7 @@
 			for( int i = _min; i < _max; i++ )
 		    	tmp[i] = 0;
 			for( int i = 0; i < n; i++ )
-		    	tmp[getRandomInt()]++;
+		    	tmp[GetRandomInt()]++;
 		    return tmp;
  		}
 	};
