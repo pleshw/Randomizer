@@ -9,10 +9,11 @@
 	#include <random>
 	#include <map>
 
-	typedef long ElementoAnalisado;
-	typedef size_t Ocorrencias;
+	typedef long ElementInAnalysis;
+	typedef size_t Occurrence;
+	
 	// Hash table com {Key: Elemento} {Value: Numero de ocorrencias}
-	typedef std::map< ElementoAnalisado, Ocorrencias > Simulacao;
+	typedef std::map< ElementInAnalysis, Occurrence > Simulation;
 
 	class Randomizer
 	{
@@ -53,9 +54,9 @@
  		long GetRandomInt ( void ) { return std::floor( _range(_generator) ); }
 
  		// Retorna um array com o resultado do teste de n dados jogados aleatoriamente.
- 		virtual Simulacao Test ( size_t n )
+ 		virtual Simulation Test ( size_t n )
  		{
-			Simulacao tmp;
+			Simulation tmp;
 			for( int i = _min; i < _max; i++ )
 		    	tmp[i] = 0;
 			for( int i = 0; i < n; i++ )
