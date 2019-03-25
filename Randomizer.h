@@ -19,46 +19,46 @@
 
 	private: 
 		// Cria um objeto para um dispositivo de randomização para gerar a seed se possível.
-		std::random_device Randomizador;
+		std::random_device _randomizador;
 
 		// Cria um gerador que recebe uma função para retornar.
-		std::default_random_engine Gerador;
+		std::default_random_engine _gerador;
 
 		// Guarda a seed que vai gerar os números retornados.
-		unsigned int Seed;
+		unsigned int _seed;
 
 		// Define o intervalo minimo e maximo a ser dado para a distribuição.
-		double Minimo;
-		double Maximo;
+		double _minimo;
+		double _maximo;
 
 		//Define o intervalo dos numéros aleatórios
-		std::uniform_real_distribution<double> Distribuicao;
+		std::uniform_real_distribution<double> _distribuicao;
 
 	public:
 		// Construtor com um range passado por parâmetro.
  		Randomizer( double min = 1.0 , double max = 6.0 ): 
-	 		Minimo  { min }, 
-	 		Maximo  { max+1 }, // Max inclusive
- 			Randomizador { /* void */ },
- 			Seed { Randomizador() },
- 			Gerador { Seed },
-	 		Distribuicao { Minimo, Maximo }
+	 		_minimo  { min }, 
+	 		_maximo  { max+1 }, // Max inclusive
+ 			_randomizador { /* void */ },
+ 			_seed { _randomizador() },
+ 			_gerador { _seed },
+	 		_distribuicao { _minimo, _maximo }
 		{ /* Alocação e declarações extras se necessário. */ }
 
 
  		// Retorna um número real aleatório dentro do range.
- 		double getRandom ( void ) { return Distribuicao(Gerador); }
+ 		double GetRandom ( void ) { return _distribuicao(_gerador); }
 
  		// Retorna um número inteiro aleatório dentro do range.
- 		long getRandomInt ( void ) { return std::floor( Distribuicao(Gerador) ); }
+ 		long GetRandomInt ( void ) { return std::floor( _distribuicao(_gerador) ); }
 
  		// Retorna um array com o resultado do teste de n dados jogados aleatoriamente.
- 		virtual Simulacao test ( size_t n )
+ 		virtual Simulacao Test ( size_t n )
  		{
- 		    Simulacao tmp;
- 		    for( int i = Minimo; i < Maximo; i++ )
+			Simulacao tmp;
+			for( int i = _minimo; i < _maximo; i++ )
 		    	tmp[i] = 0;
-		    for( int i = 0; i < n; i++ )
+			for( int i = 0; i < n; i++ )
 		    	tmp[getRandomInt()]++;
 		    return tmp;
  		}
