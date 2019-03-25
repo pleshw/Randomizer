@@ -67,6 +67,32 @@
 				tmp[GetRandomInt()]++;
 		    return tmp;
  		}
+
+  		// Retorna um array com o resultado do teste de n dados jogados aleatoriamente mas exclui um valor.
+ 		virtual Simulation TestWithException ( size_t n, double except )
+ 		{
+			Simulation tmp;
+			
+			// init the scope
+			for( double i = _min; i < _max; i++ )
+				tmp[i] = 0;
+
+			// for each test case
+			for( double i = 0; i < n; i++ )
+			{
+				// se não for a exceção adicione uma ocorrencia, se for troque de index até não ser.
+				long rand_index = GetRandomInt();
+				if( rand_index != except ) 
+					tmp[rand_index]++;
+				else
+				{
+					while( rand_index == except )
+					    rand_index = GetRandomInt();
+					tmp[rand_index]++;
+				}
+			}// for
+		    return tmp;
+ 		}
 	};
 
 #endif
