@@ -53,7 +53,7 @@
  		long getRandomInt ( void ) { return std::floor( Distribuicao(Gerador) ); }
 
  		// Retorna um array com o resultado do teste de n dados jogados aleatoriamente.
- 		Simulacao test ( size_t n )
+ 		virtual Simulacao test ( size_t n )
  		{
  		    Simulacao tmp;
  		    for( int i = Minimo; i < Maximo; i++ )
