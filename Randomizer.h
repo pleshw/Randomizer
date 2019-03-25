@@ -11,7 +11,7 @@
 
 	typedef long ElementInAnalysis;
 	typedef size_t Occurrence;
-	
+
 	// Hash table com {Key: Elemento} {Value: Numero de ocorrencias}
 	typedef std::map< ElementInAnalysis, Occurrence > Simulation;
 
@@ -19,15 +19,6 @@
 	{
 
 	private: 
-		// Cria um objeto para um dispositivo de randomização para gerar a seed se possível.
-		std::random_device _trueRandom;
-
-		// Cria um gerador que recebe uma função para retornar.
-		std::default_random_engine _generator;
-
-		// Guarda a seed que vai gerar os números retornados.
-		unsigned int _seed;
-
 		// Define o intervalo minimo e maximo a ser dado para a distribuição.
 		double _min;
 		double _max;
@@ -35,15 +26,24 @@
 		//Define o intervalo dos numéros aleatórios
 		std::uniform_real_distribution<double> _range;
 
+		// Cria um objeto para um dispositivo de randomização para gerar a seed se possível.
+		std::random_device _trueRandom;
+
+		// Guarda a seed que vai gerar os números retornados.
+		unsigned int _seed;
+
+		// Cria um gerador que recebe uma função para retornar.
+		std::default_random_engine _generator;
+
 	public:
 		// Construtor com um range passado por parâmetro.
  		Randomizer( double min = 1.0 , double max = 6.0 ): 
-	 		_min  { min }, 
+	 		_min  { min },
 	 		_max  { max+1 }, // Max inclusive
+	 		_range { _min, _max },
  			_trueRandom { /* void */ },
  			_seed { _trueRandom() },
- 			_generator { _seed },
-	 		_range { _min, _max }
+ 			_generator { _seed }
 		{ /* Alocação e declarações extras se necessário. */ }
 
 
@@ -57,9 +57,9 @@
  		virtual Simulation Test ( size_t n )
  		{
 			Simulation tmp;
-			for( int i = _min; i < _max; i++ )
+			for( double i = _min; i < _max; i++ )
 		    	tmp[i] = 0;
-			for( int i = 0; i < n; i++ )
+			for( double i = 0; i < n; i++ )
 		    	tmp[GetRandomInt()]++;
 		    return tmp;
  		}
