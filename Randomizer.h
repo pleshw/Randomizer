@@ -55,8 +55,8 @@
  		// Retorna um array com o resultado do teste de n dados jogados aleatoriamente.
  		Simulacao test ( size_t n )
  		{
- 			Simulacao tmp;
- 			for( int i = Minimo; i < Maximo; i++ )
+ 		    Simulacao tmp;
+ 		    for( int i = Minimo; i < Maximo; i++ )
 		    	tmp[i] = 0;
 		    for( int i = 0; i < n; i++ )
 		    	tmp[getRandomInt()]++;
@@ -65,79 +65,3 @@
 	};
 
 #endif
-
-
-
-
-
-
-// CODIGO TESTE E QUE VALE NOTA NO EXERCICIO.
-
-
-
-
-
-// #include <iostream>
-
-// int main(){
-    
-//     Randomizer r;
-    
-//     Simulacao EscopoDeTestes;
-//     size_t NumeroDeTestes = 0;
-    
-//     // Testando 5 casos.
-//     NumeroDeTestes = 5;
-//     EscopoDeTestes = r.test( NumeroDeTestes );
-    
-//     std::cout << "Numero de testes da simulacao a seguir: " << NumeroDeTestes << std::endl;
-//     for (auto& x: EscopoDeTestes)
-//         std::cout << x.first << " ocorreu: " << x.second << " vezes ou seja " << 100*x.second/NumeroDeTestes << "% do total." << std::endl;
-//     std::cout << std::endl << std::endl;
-    
-//     // Testando 100 casos.
-//     NumeroDeTestes = 100;
-//     EscopoDeTestes = r.test( NumeroDeTestes );
-    
-//     std::cout << "Numero de testes da simulacao a seguir: " << NumeroDeTestes << std::endl;
-//     for (auto& x: EscopoDeTestes)
-//         std::cout << x.first << " ocorreu: " << x.second << " vezes ou seja " << 100*x.second/NumeroDeTestes << "% do total." << std::endl;
-//     std::cout << std::endl << std::endl;
-
-//     // Testando 1000 casos.
-//     NumeroDeTestes = 1000;
-//     EscopoDeTestes = r.test( NumeroDeTestes );
-    
-//     std::cout << "Numero de testes da simulacao a seguir: " << NumeroDeTestes << std::endl;
-//     for (auto& x: EscopoDeTestes)
-//         std::cout << x.first << " ocorreu: " << x.second << " vezes ou seja " << 100*x.second/NumeroDeTestes << "% do total." << std::endl;
-//     std::cout << std::endl << std::endl;
-
-//     // Testando 10000 casos.
-//     NumeroDeTestes = 10000;
-//     EscopoDeTestes = r.test( NumeroDeTestes );
-    
-//     std::cout << "Numero de testes da simulacao a seguir: " << NumeroDeTestes << std::endl;
-//     for (auto& x: EscopoDeTestes)
-//         std::cout << x.first << " ocorreu: " << x.second << " vezes ou seja " << 100*x.second/NumeroDeTestes << "% do total." << std::endl;
-//     std::cout << std::endl << std::endl;
-
-//     // Testando 100000 casos.
-//     NumeroDeTestes = 100000;
-//     EscopoDeTestes = r.test( NumeroDeTestes );
-    
-//     std::cout << "Numero de testes da simulacao a seguir: " << NumeroDeTestes << std::endl;
-//     for (auto& x: EscopoDeTestes)
-//         std::cout << x.first << " ocorreu: " << x.second << " vezes ou seja " << 100*x.second/NumeroDeTestes << "% do total." << std::endl;
-//     std::cout << std::endl << std::endl;    
-        
-//      // Testando 100000 casos.
-//     NumeroDeTestes = 100000;
-//     EscopoDeTestes = r.test( NumeroDeTestes );
-    
-//     std::cout << "Numero de testes da simulacao a seguir: " << NumeroDeTestes << std::endl;
-//     for (auto& x: EscopoDeTestes)
-//         std::cout << x.first << " ocorreu: " << x.second << " vezes ou seja " << 100*x.second/NumeroDeTestes << "% do total." << std::endl;
-//     std::cout << std::endl << std::endl;
-    
-// }
