@@ -57,6 +57,33 @@
  		// Retorna um número inteiro aleatório dentro do range.
  		long GetRandomInt ( void ) { return std::floor( _range(_generator) ); }
 
+ 		 // Retorna um número real aleatório dentro do range com uma exceção.
+ 		double GetRandomWithException ( double except ) 
+ 		{
+ 			 double tmp = GetRandom();
+ 			 while(tmp == except)
+ 			 	tmp = GetRandom();
+ 			 return tmp;
+ 		}
+
+ 		// Retorna um número inteiro aleatório dentro do range com uma exceção.
+ 		long GetRandomIntWithException ( long except ) 
+ 		{
+ 			 long tmp = GetRandomInt();
+ 			 while(tmp == except)
+ 			 	tmp = GetRandomInt();
+ 			 return tmp;
+ 		}
+
+ 		// Retorna um número inteiro aleatório dentro do range com uma exceção.
+ 		long GetRandomIntWithTwoExceptions ( long except1, long except2 ) 
+ 		{
+ 			 long tmp = GetRandomInt();
+ 			 while(tmp == except1 || tmp == except2)
+ 			 	tmp = GetRandomInt();
+ 			 return tmp;
+ 		}
+
  		// Retorna um array com o resultado do teste de n dados jogados aleatoriamente.
  		virtual Simulation Test ( size_t n )
  		{
